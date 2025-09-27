@@ -10,6 +10,11 @@ This package contains converters to and from common Unity types. Types such as
 *and many, many more.*
 (See the [full compatibility table of all +50 supported Unity types][doc-compatability-table])
 
+> [!CAUTION]
+> **This project is unmaintained** and is looking for someone to carry the torch further.
+> 
+> See also: [issue #99](https://github.com/applejag/Newtonsoft.Json-for-Unity.Converters/issues/99)
+
 ## Dependencies
 
 ### Newtonsoft.Json packages
