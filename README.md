@@ -64,6 +64,21 @@ resolve it.
 
 ## Installation
 
+### Install via Git URL
+
+This is now the simplest method since the package is at the repository root.
+
+1. Open Unity Package Manager (Window > Package Manager)
+2. Click the "+" button in the top-left corner
+3. Select "Add package from git URL..."
+4. Enter: `https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git`
+5. Click "Add"
+
+You can also add a specific version or branch by appending it to the URL:
+```
+https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git#12.0.1-preview.1
+```
+
 ### OpenUPM ![OpenUPM icon](Doc/images/openupm-icon-16.png)
 
 Add the [jillejr.newtonsoft.json-for-unity.converters](https://openupm.com/packages/jillejr.newtonsoft.json-for-unity.converters/)
