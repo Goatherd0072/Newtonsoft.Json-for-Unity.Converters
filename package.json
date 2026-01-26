@@ -10,8 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters.git",
-    "directory": "Packages/Newtonsoft.Json-for-Unity.Converters"
+    "url": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git"
   },
   "keywords": [
     "json",
@@ -24,9 +23,9 @@
   "author": "jilleJr",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters/issues"
+    "url": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters/issues"
   },
-  "homepage": "https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters#readme",
+  "homepage": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters#readme",
   "category": "Utility",
   "type": "library"
 }

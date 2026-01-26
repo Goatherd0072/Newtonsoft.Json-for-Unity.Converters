@@ -15,6 +15,18 @@ Assets/IdentityPublicKey.snk.meta
 /Assets/InitTestScene*.unity
 /Assets/InitTestScene*.unity.meta
 
+# Unity project folders (not needed for UPM package)
+/Assets/
+/ProjectSettings/
+/Packages/manifest*.json
+/Build/
+
+# Ignore built plugin files
+Plugins/*/*.dll
+Plugins/*/*.dll.mdb
+Plugins/*/*.pdb
+Plugins/*/*.xml
+
 # Self made folders
 [Bb]ackups/
 [Bb]ackup/
