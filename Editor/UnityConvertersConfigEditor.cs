@@ -54,16 +54,30 @@ namespace Newtonsoft.Json.UnityConverters.Editor
         {
             public static GUIStyle headerStyle;
             public static GUIStyle boldHeaderStyle;
-            public static GUIContent jsonSerializerSettingsFoldout;
+            public static readonly GUIContent jsonSerializerSettingsFoldout = new GUIContent(
+                "JsonSerializerSettings Configuration",
+                "Configure the default JsonSerializerSettings properties that will be applied when using this package.");
+            
+            // JsonSerializerSettings property labels
+            public static readonly GUIContent typeNameHandling = new GUIContent("Type Name Handling",
+                "Controls how type information is serialized. None = no type information, Auto = includes type when needed.");
+            public static readonly GUIContent nullValueHandling = new GUIContent("Null Value Handling",
+                "Controls how null values are handled. Include = serialize null values, Ignore = skip null values.");
+            public static readonly GUIContent defaultValueHandling = new GUIContent("Default Value Handling",
+                "Controls how default values are handled. Include = serialize default values, Ignore = skip default values.");
+            public static readonly GUIContent referenceLoopHandling = new GUIContent("Reference Loop Handling",
+                "Controls behavior when a reference loop is detected. Error = throw exception, Ignore = skip, Serialize = allow loops.");
+            public static readonly GUIContent formatting = new GUIContent("Formatting",
+                "Controls JSON formatting. None = compact, Indented = pretty-printed with indentation.");
+            public static readonly GUIContent dateFormatHandling = new GUIContent("Date Format Handling",
+                "Controls how dates are formatted. IsoDateFormat = ISO 8601 format, MicrosoftDateFormat = Microsoft format.");
+            public static readonly GUIContent missingMemberHandling = new GUIContent("Missing Member Handling",
+                "Controls behavior when JSON contains a member not found in the target object. Ignore = skip, Error = throw exception.");
 
             static Styles()
             {
                 headerStyle = new GUIStyle { fontSize = 20, wordWrap = true, normal = EditorStyles.label.normal };
                 boldHeaderStyle = new GUIStyle { fontSize = 20, fontStyle = FontStyle.Bold, wordWrap = true, normal = EditorStyles.label.normal };
-                jsonSerializerSettingsFoldout = new GUIContent {
-                    text = "JsonSerializerSettings Configuration",
-                    tooltip = "Configure the default JsonSerializerSettings properties that will be applied when using this package."
-                };
             }
         }
 
@@ -186,26 +200,13 @@ namespace Newtonsoft.Json.UnityConverters.Editor
             {
                 EditorGUI.indentLevel++;
                 
-                EditorGUILayout.PropertyField(_typeNameHandling, new GUIContent("Type Name Handling", 
-                    "Controls how type information is serialized. None = no type information, Auto = includes type when needed."));
-                    
-                EditorGUILayout.PropertyField(_nullValueHandling, new GUIContent("Null Value Handling", 
-                    "Controls how null values are handled. Include = serialize null values, Ignore = skip null values."));
-                    
-                EditorGUILayout.PropertyField(_defaultValueHandling, new GUIContent("Default Value Handling", 
-                    "Controls how default values are handled. Include = serialize default values, Ignore = skip default values."));
-                    
-                EditorGUILayout.PropertyField(_referenceLoopHandling, new GUIContent("Reference Loop Handling", 
-                    "Controls behavior when a reference loop is detected. Error = throw exception, Ignore = skip, Serialize = allow loops."));
-                    
-                EditorGUILayout.PropertyField(_formatting, new GUIContent("Formatting", 
-                    "Controls JSON formatting. None = compact, Indented = pretty-printed with indentation."));
-                    
-                EditorGUILayout.PropertyField(_dateFormatHandling, new GUIContent("Date Format Handling", 
-                    "Controls how dates are formatted. IsoDateFormat = ISO 8601 format, MicrosoftDateFormat = Microsoft format."));
-                    
-                EditorGUILayout.PropertyField(_missingMemberHandling, new GUIContent("Missing Member Handling", 
-                    "Controls behavior when JSON contains a member not found in the target object. Ignore = skip, Error = throw exception."));
+                EditorGUILayout.PropertyField(_typeNameHandling, Styles.typeNameHandling);
+                EditorGUILayout.PropertyField(_nullValueHandling, Styles.nullValueHandling);
+                EditorGUILayout.PropertyField(_defaultValueHandling, Styles.defaultValueHandling);
+                EditorGUILayout.PropertyField(_referenceLoopHandling, Styles.referenceLoopHandling);
+                EditorGUILayout.PropertyField(_formatting, Styles.formatting);
+                EditorGUILayout.PropertyField(_dateFormatHandling, Styles.dateFormatHandling);
+                EditorGUILayout.PropertyField(_missingMemberHandling, Styles.missingMemberHandling);
                 
                 EditorGUI.indentLevel--;
             }

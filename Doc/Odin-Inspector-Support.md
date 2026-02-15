@@ -15,8 +15,9 @@ When Odin Inspector is detected (via the `ODIN_INSPECTOR` scripting define symbo
 ## How to Enable
 
 1. Install Odin Inspector in your project
-2. Odin Inspector will automatically add the `ODIN_INSPECTOR` scripting define symbol to your project
-   - If auto-detection fails, you can manually add it via Project Settings > Player > Scripting Define Symbols
+2. Odin Inspector should automatically add the `ODIN_INSPECTOR` scripting define symbol
+   - Verify in Project Settings > Player > Scripting Define Symbols
+   - If not present, add it manually to enable Odin features
 3. Open the Json.NET converters settings (Edit > Json.NET converters settings...)
 4. The inspector will automatically use Odin's enhanced UI
 
