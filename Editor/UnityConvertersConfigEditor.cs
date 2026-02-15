@@ -54,11 +54,16 @@ namespace Newtonsoft.Json.UnityConverters.Editor
         {
             public static GUIStyle headerStyle;
             public static GUIStyle boldHeaderStyle;
+            public static GUIContent jsonSerializerSettingsFoldout;
 
             static Styles()
             {
                 headerStyle = new GUIStyle { fontSize = 20, wordWrap = true, normal = EditorStyles.label.normal };
                 boldHeaderStyle = new GUIStyle { fontSize = 20, fontStyle = FontStyle.Bold, wordWrap = true, normal = EditorStyles.label.normal };
+                jsonSerializerSettingsFoldout = new GUIContent {
+                    text = "JsonSerializerSettings Configuration",
+                    tooltip = "Configure the default JsonSerializerSettings properties that will be applied when using this package."
+                };
             }
         }
 
@@ -174,12 +179,7 @@ namespace Newtonsoft.Json.UnityConverters.Editor
             // JsonSerializerSettings section
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
             
-            var foldoutContent = new GUIContent {
-                text = "JsonSerializerSettings Configuration",
-                tooltip = "Configure the default JsonSerializerSettings properties that will be applied when using this package."
-            };
-            
-            bool foldout = EditorGUILayout.Foldout(_jsonSerializerSettingsShow.target, foldoutContent, true, EditorStyles.foldoutHeader);
+            bool foldout = EditorGUILayout.Foldout(_jsonSerializerSettingsShow.target, Styles.jsonSerializerSettingsFoldout, true, EditorStyles.foldoutHeader);
             _jsonSerializerSettingsShow.target = foldout;
             
             if (EditorGUILayout.BeginFadeGroup(_jsonSerializerSettingsShow.faded))
