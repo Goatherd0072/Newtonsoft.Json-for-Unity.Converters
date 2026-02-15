@@ -68,10 +68,12 @@ This is the recommended installation method for this pure UPM package.
 4. Enter: `https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git`
 5. Click "Add"
 
-You can also add a specific version or branch by appending it to the URL:
+You can also add a specific version, tag, or branch by appending it to the URL:
 ```
-https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git#12.0.1-preview.1
+https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git#v1.0.0
 ```
+
+Replace `v1.0.0` with your desired version tag or branch name.
 
 ### Install via manifest.json
 
@@ -85,14 +87,16 @@ Alternatively, you can add this package directly to your project's `Packages/man
 }
 ```
 
-For a specific version:
+For a specific version, tag, or branch:
 ```json
 {
   "dependencies": {
-    "jillejr.newtonsoft.json-for-unity.converters": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git#12.0.1-preview.1"
+    "jillejr.newtonsoft.json-for-unity.converters": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git#v1.0.0"
   }
 }
 ```
+
+Replace `v1.0.0` with your desired version tag or branch name.
 
 ## What does it solve
 

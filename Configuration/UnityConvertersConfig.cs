@@ -73,7 +73,8 @@ namespace Newtonsoft.Json.UnityConverters.Configuration
 
 #if ODIN_INSPECTOR
         [FoldoutGroup("JsonSerializerSettings", expanded: true)]
-        [Title("Serialization Settings")] // Title header for the entire JsonSerializerSettings group
+        // Title attribute creates a visual separator/header above this field in Odin Inspector
+        [Title("Serialization Settings")]
         [InfoBox("Configure the default JsonSerializerSettings properties applied by this package.")]
         [EnumToggleButtons]
 #endif
