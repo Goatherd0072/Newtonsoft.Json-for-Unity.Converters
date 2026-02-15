@@ -50,24 +50,24 @@ namespace Newtonsoft.Json.UnityConverters.Editor
         {
             public static GUIStyle headerStyle;
             public static GUIStyle boldHeaderStyle;
-            public static readonly GUIContent jsonSerializerSettingsFoldout = new GUIContent(
+            public static readonly GUIContent JsonSerializerSettingsFoldout = new GUIContent(
                 "JsonSerializerSettings Configuration",
                 "Configure the default JsonSerializerSettings properties that will be applied when using this package.");
             
             // JsonSerializerSettings property labels
-            public static readonly GUIContent typeNameHandling = new GUIContent("Type Name Handling",
+            public static readonly GUIContent TypeNameHandling = new GUIContent("Type Name Handling",
                 "Controls how type information is serialized. None = no type information, Auto = includes type when needed.");
-            public static readonly GUIContent nullValueHandling = new GUIContent("Null Value Handling",
+            public static readonly GUIContent NullValueHandling = new GUIContent("Null Value Handling",
                 "Controls how null values are handled. Include = serialize null values, Ignore = skip null values.");
-            public static readonly GUIContent defaultValueHandling = new GUIContent("Default Value Handling",
+            public static readonly GUIContent DefaultValueHandling = new GUIContent("Default Value Handling",
                 "Controls how default values are handled. Include = serialize default values, Ignore = skip default values.");
-            public static readonly GUIContent referenceLoopHandling = new GUIContent("Reference Loop Handling",
+            public static readonly GUIContent ReferenceLoopHandling = new GUIContent("Reference Loop Handling",
                 "Controls behavior when a reference loop is detected. Error = throw exception, Ignore = skip, Serialize = allow loops.");
-            public static readonly GUIContent formatting = new GUIContent("Formatting",
+            public static readonly GUIContent Formatting = new GUIContent("Formatting",
                 "Controls JSON formatting. None = compact, Indented = pretty-printed with indentation.");
-            public static readonly GUIContent dateFormatHandling = new GUIContent("Date Format Handling",
+            public static readonly GUIContent DateFormatHandling = new GUIContent("Date Format Handling",
                 "Controls how dates are formatted. IsoDateFormat = ISO 8601 format, MicrosoftDateFormat = Microsoft format.");
-            public static readonly GUIContent missingMemberHandling = new GUIContent("Missing Member Handling",
+            public static readonly GUIContent MissingMemberHandling = new GUIContent("Missing Member Handling",
                 "Controls behavior when JSON contains a member not found in the target object. Ignore = skip, Error = throw exception.");
 
             static Styles()
@@ -189,20 +189,20 @@ namespace Newtonsoft.Json.UnityConverters.Editor
             // JsonSerializerSettings section
             EditorGUILayout.BeginVertical(EditorStyles.helpBox);
             
-            bool foldout = EditorGUILayout.Foldout(_jsonSerializerSettingsShow.target, Styles.jsonSerializerSettingsFoldout, true, EditorStyles.foldoutHeader);
+            bool foldout = EditorGUILayout.Foldout(_jsonSerializerSettingsShow.target, Styles.JsonSerializerSettingsFoldout, true, EditorStyles.foldoutHeader);
             _jsonSerializerSettingsShow.target = foldout;
             
             if (EditorGUILayout.BeginFadeGroup(_jsonSerializerSettingsShow.faded))
             {
                 EditorGUI.indentLevel++;
                 
-                EditorGUILayout.PropertyField(_typeNameHandling, Styles.typeNameHandling);
-                EditorGUILayout.PropertyField(_nullValueHandling, Styles.nullValueHandling);
-                EditorGUILayout.PropertyField(_defaultValueHandling, Styles.defaultValueHandling);
-                EditorGUILayout.PropertyField(_referenceLoopHandling, Styles.referenceLoopHandling);
-                EditorGUILayout.PropertyField(_formatting, Styles.formatting);
-                EditorGUILayout.PropertyField(_dateFormatHandling, Styles.dateFormatHandling);
-                EditorGUILayout.PropertyField(_missingMemberHandling, Styles.missingMemberHandling);
+                EditorGUILayout.PropertyField(_typeNameHandling, Styles.TypeNameHandling);
+                EditorGUILayout.PropertyField(_nullValueHandling, Styles.NullValueHandling);
+                EditorGUILayout.PropertyField(_defaultValueHandling, Styles.DefaultValueHandling);
+                EditorGUILayout.PropertyField(_referenceLoopHandling, Styles.ReferenceLoopHandling);
+                EditorGUILayout.PropertyField(_formatting, Styles.Formatting);
+                EditorGUILayout.PropertyField(_dateFormatHandling, Styles.DateFormatHandling);
+                EditorGUILayout.PropertyField(_missingMemberHandling, Styles.MissingMemberHandling);
                 
                 EditorGUI.indentLevel--;
             }
