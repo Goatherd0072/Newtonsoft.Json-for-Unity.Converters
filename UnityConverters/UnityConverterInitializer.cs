@@ -122,6 +122,13 @@ namespace Newtonsoft.Json.UnityConverters
 
             var settings = new JsonSerializerSettings {
                 Converters = CreateConverters(config),
+                TypeNameHandling = config.typeNameHandling,
+                NullValueHandling = config.nullValueHandling,
+                DefaultValueHandling = config.defaultValueHandling,
+                ReferenceLoopHandling = config.referenceLoopHandling,
+                Formatting = config.formatting,
+                DateFormatHandling = config.dateFormatHandling,
+                MissingMemberHandling = config.missingMemberHandling,
             };
 
             if (config.useUnityContractResolver)

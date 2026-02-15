@@ -31,6 +31,15 @@ namespace Newtonsoft.Json.UnityConverters.Configuration
         };
 
         public bool autoSyncConverters = true;
+
+        // JsonSerializerSettings properties
+        public TypeNameHandling typeNameHandling = TypeNameHandling.None;
+        public NullValueHandling nullValueHandling = NullValueHandling.Include;
+        public DefaultValueHandling defaultValueHandling = DefaultValueHandling.Include;
+        public ReferenceLoopHandling referenceLoopHandling = ReferenceLoopHandling.Error;
+        public Formatting formatting = Formatting.None;
+        public DateFormatHandling dateFormatHandling = DateFormatHandling.IsoDateFormat;
+        public MissingMemberHandling missingMemberHandling = MissingMemberHandling.Ignore;
     }
 #pragma warning restore CA2235 // Mark all non-serializable fields
 }
