@@ -1,6 +1,5 @@
 # Unity Converters for Newtonsoft.Json
 
-[![openupm](https://img.shields.io/npm/v/jillejr.newtonsoft.json-for-unity.converters?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/jillejr.newtonsoft.json-for-unity.converters/)
 [![CircleCI](https://img.shields.io/circleci/build/gh/applejag/Newtonsoft.Json-for-Unity.Converters/master?logo=circleci&style=flat-square)](https://circleci.com/gh/applejag/Newtonsoft.Json-for-Unity.Converters)
 [![Codacy grade](https://img.shields.io/codacy/grade/de7041b5f9f9415a8add975d1b8a9fcf?logo=codacy&style=flat-square)](https://www.codacy.com/manual/jilleJr/Newtonsoft.Json-for-Unity.Converters?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jilleJr/Newtonsoft.Json-for-Unity.Converters&amp;utm_campaign=Badge_Grade)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg?style=flat-square)](/CODE_OF_CONDUCT.md)
@@ -10,10 +9,8 @@ This package contains converters to and from common Unity types. Types such as
 *and many, many more.*
 (See the [full compatibility table of all +50 supported Unity types][doc-compatability-table])
 
-> [!CAUTION]
-> **This project is unmaintained** and is looking for someone to carry the torch further.
-> 
-> See also: [issue #99](https://github.com/applejag/Newtonsoft.Json-for-Unity.Converters/issues/99)
+> [!NOTE]
+> **This is a fork** maintained by Goatherd0072. The original project by jilleJr/applejag is no longer maintained.
 
 ## Dependencies
 
@@ -44,10 +41,7 @@ Since v3.0.1 of Unity's fork (of my fork) of Newtonsoft.Json, they are now
 promising a maintained version with official support by Unity's own dev
 team. See installation instructions here: [Install official UPM package](https://github.com/jilleJr/Newtonsoft.Json-for-Unity/wiki/Install-official-via-UPM)
 
-> Do note that I've changed my GitHub username from jilleJr to applejag.
-> Repository URLs automatically get redirected.
->
-> I will not however rename the NPM/UPM/Cloudsmith packages.
+> This is a maintained fork. Install via Git URL as described below for the latest updates.
 
 ### Newtonsoft.Json versions
 
@@ -64,9 +58,9 @@ resolve it.
 
 ## Installation
 
-### Install via Git URL
+### Install via Git URL (Recommended)
 
-This is now the simplest method since the package is at the repository root.
+This is the recommended installation method for this pure UPM package.
 
 1. Open Unity Package Manager (Window > Package Manager)
 2. Click the "+" button in the top-left corner
@@ -79,25 +73,26 @@ You can also add a specific version or branch by appending it to the URL:
 https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git#12.0.1-preview.1
 ```
 
-### OpenUPM ![OpenUPM icon](Doc/images/openupm-icon-16.png)
+### Install via manifest.json
 
-Add the [jillejr.newtonsoft.json-for-unity.converters](https://openupm.com/packages/jillejr.newtonsoft.json-for-unity.converters/)
-<abbr title="OpenUPM: A very popular open source Unity package registry for Unity Package Manager (UPM) packages">OpenUPM</abbr>
-package:
+Alternatively, you can add this package directly to your project's `Packages/manifest.json` file:
 
-```sh
-openupm add jillejr.newtonsoft.json-for-unity.converters
+```json
+{
+  "dependencies": {
+    "jillejr.newtonsoft.json-for-unity.converters": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git"
+  }
+}
 ```
 
-Visit the jilleJr/Newtonsoft.Json-for-Unity/wiki to [read more about
-installing/upgrading via OpenUPM][wiki-install-converters-via-git-in-upm].
-
-### Other
-
-Visit the jilleJr/Newtonsoft.Json-for-Unity/wiki for installation:
-
-- [Installation via <abbr title="UPM: Unity Package Manager, included in Unity since 2018.1+">UPM</abbr>][wiki-install-converters-via-upm]
-- [Installation via Git in UPM][wiki-install-converters-via-git-in-upm]
+For a specific version:
+```json
+{
+  "dependencies": {
+    "jillejr.newtonsoft.json-for-unity.converters": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git#12.0.1-preview.1"
+  }
+}
+```
 
 ## What does it solve
 
@@ -290,9 +285,6 @@ See full copyrights in [LICENSE.md][license.md] inside repository
 
 [license.md]: /LICENSE.md
 [changelog.md]: /CHANGELOG.md
-[wiki-install-converters-via-git-in-upm]: https://github.com/jilleJr/Newtonsoft.Json-for-Unity/wiki/Install-Converters-via-Git-in-UPM
-[wiki-install-converters-via-upm]: https://github.com/jilleJr/Newtonsoft.Json-for-Unity/wiki/Install-Converters-via-UPM
-[wiki-install-converters-via-openupm]: https://github.com/jilleJr/Newtonsoft.Json-for-Unity/wiki/Install-Converters-via-OpenUPM
 [doc-compatability-table]: Doc/Compatability-table.md
-[issue-create]: https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters/issues/new/choose
-[issue-list-unassigned]: https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters/issues?q=is%3Aopen+is%3Aissue+no%3Aassignee
+[issue-create]: https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters/issues/new/choose
+[issue-list-unassigned]: https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters/issues?q=is%3Aopen+is%3Aissue+no%3Aassignee
