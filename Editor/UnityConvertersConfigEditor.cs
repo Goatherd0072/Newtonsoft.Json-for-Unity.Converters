@@ -13,16 +13,12 @@ namespace Newtonsoft.Json.UnityConverters.Editor
 {
     using Editor = UnityEditor.Editor;
 
-#if !ODIN_INSPECTOR
     // Only use this custom editor when Odin Inspector is not available
     // When Odin is present, it will use its own superior inspector
+#if !ODIN_INSPECTOR
     [CustomEditor(typeof(UnityConvertersConfig))]
-    public class UnityConvertersConfigEditor : Editor
-#else
-    // When Odin is available, this editor is not used
-    // But we keep it for backwards compatibility and manual access
-    public class UnityConvertersConfigEditor : Editor
 #endif
+    public class UnityConvertersConfigEditor : Editor
     {
         private SerializedProperty _useUnityContractResolver;
         private SerializedProperty _useAllOutsideConverters;
