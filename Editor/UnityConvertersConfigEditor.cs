@@ -25,10 +25,20 @@ namespace Newtonsoft.Json.UnityConverters.Editor
         private SerializedProperty _jsonNetConverters;
         private SerializedProperty _autoSyncConverters;
 
+        // JsonSerializerSettings properties
+        private SerializedProperty _typeNameHandling;
+        private SerializedProperty _nullValueHandling;
+        private SerializedProperty _defaultValueHandling;
+        private SerializedProperty _referenceLoopHandling;
+        private SerializedProperty _formatting;
+        private SerializedProperty _dateFormatHandling;
+        private SerializedProperty _missingMemberHandling;
+
         private AnimBool _outsideConvertersShow;
         private AnimBool _unityConvertersShow;
         private AnimBool _jsonNetConvertersShow;
         private AnimBool _autoSyncConvertersShow;
+        private AnimBool _jsonSerializerSettingsShow;
 
         private bool _isDirty;
 
@@ -36,6 +46,25 @@ namespace Newtonsoft.Json.UnityConverters.Editor
         {
             public static GUIStyle headerStyle;
             public static GUIStyle boldHeaderStyle;
+            public static readonly GUIContent JsonSerializerSettingsFoldout = new GUIContent(
+                "JsonSerializerSettings Configuration",
+                "Configure the default JsonSerializerSettings properties that will be applied when using this package.");
+            
+            // JsonSerializerSettings property labels
+            public static readonly GUIContent TypeNameHandling = new GUIContent("Type Name Handling",
+                "Controls how type information is serialized. None = no type information, Auto = includes type when needed.");
+            public static readonly GUIContent NullValueHandling = new GUIContent("Null Value Handling",
+                "Controls how null values are handled. Include = serialize null values, Ignore = skip null values.");
+            public static readonly GUIContent DefaultValueHandling = new GUIContent("Default Value Handling",
+                "Controls how default values are handled. Include = serialize default values, Ignore = skip default values.");
+            public static readonly GUIContent ReferenceLoopHandling = new GUIContent("Reference Loop Handling",
+                "Controls behavior when a reference loop is detected. Error = throw exception, Ignore = skip, Serialize = allow loops.");
+            public static readonly GUIContent Formatting = new GUIContent("Formatting",
+                "Controls JSON formatting. None = compact, Indented = pretty-printed with indentation.");
+            public static readonly GUIContent DateFormatHandling = new GUIContent("Date Format Handling",
+                "Controls how dates are formatted. IsoDateFormat = ISO 8601 format, MicrosoftDateFormat = Microsoft format.");
+            public static readonly GUIContent MissingMemberHandling = new GUIContent("Missing Member Handling",
+                "Controls behavior when JSON contains a member not found in the target object. Ignore = skip, Error = throw exception.");
 
             static Styles()
             {
@@ -69,14 +98,25 @@ namespace Newtonsoft.Json.UnityConverters.Editor
             _jsonNetConverters = serializedObject.FindProperty(nameof(UnityConvertersConfig.jsonNetConverters));
             _autoSyncConverters = serializedObject.FindProperty(nameof(UnityConvertersConfig.autoSyncConverters));
 
+            // JsonSerializerSettings properties
+            _typeNameHandling = serializedObject.FindProperty(nameof(UnityConvertersConfig.typeNameHandling));
+            _nullValueHandling = serializedObject.FindProperty(nameof(UnityConvertersConfig.nullValueHandling));
+            _defaultValueHandling = serializedObject.FindProperty(nameof(UnityConvertersConfig.defaultValueHandling));
+            _referenceLoopHandling = serializedObject.FindProperty(nameof(UnityConvertersConfig.referenceLoopHandling));
+            _formatting = serializedObject.FindProperty(nameof(UnityConvertersConfig.formatting));
+            _dateFormatHandling = serializedObject.FindProperty(nameof(UnityConvertersConfig.dateFormatHandling));
+            _missingMemberHandling = serializedObject.FindProperty(nameof(UnityConvertersConfig.missingMemberHandling));
+
             _outsideConvertersShow = new AnimBool(_outsideConverters.isExpanded);
             _unityConvertersShow = new AnimBool(_unityConverters.isExpanded);
             _jsonNetConvertersShow = new AnimBool(_jsonNetConverters.isExpanded);
             _autoSyncConvertersShow = new AnimBool(!_autoSyncConverters.boolValue);
+            _jsonSerializerSettingsShow = new AnimBool(true);
 
             _outsideConvertersShow.valueChanged.AddListener(Repaint);
             _unityConvertersShow.valueChanged.AddListener(Repaint);
             _jsonNetConvertersShow.valueChanged.AddListener(Repaint);
+            _jsonSerializerSettingsShow.valueChanged.AddListener(Repaint);
 
             serializedObject.Update();
             AddAndSetupConverters(_outsideConverters, grouped.outsideConverters, _useAllOutsideConverters.boolValue);
@@ -139,6 +179,31 @@ namespace Newtonsoft.Json.UnityConverters.Editor
                 }
             }
             EditorGUILayout.EndFadeGroup();
+
+            EditorGUILayout.Space();
+
+            // JsonSerializerSettings section
+            EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+            
+            bool foldout = EditorGUILayout.Foldout(_jsonSerializerSettingsShow.target, Styles.JsonSerializerSettingsFoldout, true, EditorStyles.foldoutHeader);
+            _jsonSerializerSettingsShow.target = foldout;
+            
+            if (EditorGUILayout.BeginFadeGroup(_jsonSerializerSettingsShow.faded))
+            {
+                EditorGUI.indentLevel++;
+                
+                EditorGUILayout.PropertyField(_typeNameHandling, Styles.TypeNameHandling);
+                EditorGUILayout.PropertyField(_nullValueHandling, Styles.NullValueHandling);
+                EditorGUILayout.PropertyField(_defaultValueHandling, Styles.DefaultValueHandling);
+                EditorGUILayout.PropertyField(_referenceLoopHandling, Styles.ReferenceLoopHandling);
+                EditorGUILayout.PropertyField(_formatting, Styles.Formatting);
+                EditorGUILayout.PropertyField(_dateFormatHandling, Styles.DateFormatHandling);
+                EditorGUILayout.PropertyField(_missingMemberHandling, Styles.MissingMemberHandling);
+                
+                EditorGUI.indentLevel--;
+            }
+            EditorGUILayout.EndFadeGroup();
+            EditorGUILayout.EndVertical();
 
             serializedObject.ApplyModifiedProperties();
 
