@@ -12,13 +12,5 @@
     "precompiledReferences": [
         "Newtonsoft.Json.dll"
     ],
-    "autoReferenced": false,
-    "defineConstraints": [],
-    "versionDefines": [
-        {
-            "name": "com.sirenix.odininspector",
-            "expression": "",
-            "define": "ODIN_INSPECTOR"
-        }
-    ]
+    "autoReferenced": false
 }

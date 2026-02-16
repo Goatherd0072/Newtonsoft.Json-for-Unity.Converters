@@ -260,18 +260,6 @@ JsonSerializerSettings that this package has overridden. If you're setting the
 JsonSerializerSettings manually through code, as shown in the example above,
 then all of these settings will be ignored.
 
-### Odin Inspector Support
-
-This package includes optional support for [Odin Inspector](https://odininspector.com/). 
-When Odin Inspector is installed in your project (via UPM as `com.sirenix.odininspector`), 
-the package automatically detects it and the configuration inspector uses Odin's enhanced 
-UI features including foldout groups, info boxes, and enum toggle buttons for a better user experience.
-
-**The detection is fully automatic** - no manual configuration needed. The package works perfectly 
-with or without Odin Inspector installed.
-
-See [Odin Inspector Support documentation](Doc/Odin-Inspector-Support.md) for more details.
-
 ## Contributing
 
 Thankful that you're even reading this :)

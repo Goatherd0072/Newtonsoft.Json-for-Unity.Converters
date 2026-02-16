@@ -31,11 +31,6 @@
             "name": "com.unity.mathematics",
             "expression": "",
             "define": "HAVE_MODULE_MATHEMATICS"
-        },
-        {
-            "name": "com.sirenix.odininspector",
-            "expression": "",
-            "define": "ODIN_INSPECTOR"
         }
     ],
     "noEngineReferences": false
