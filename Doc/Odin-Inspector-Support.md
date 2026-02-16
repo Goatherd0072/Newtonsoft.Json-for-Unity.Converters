@@ -14,12 +14,15 @@ When Odin Inspector is detected (via the `ODIN_INSPECTOR` scripting define symbo
 
 ## How to Enable
 
-1. Install Odin Inspector in your project
-2. Odin Inspector should automatically add the `ODIN_INSPECTOR` scripting define symbol
-   - Verify in Project Settings > Player > Scripting Define Symbols
-   - If not present, add it manually to enable Odin features
+1. Install Odin Inspector in your project via UPM or Asset Store
+2. The package will automatically detect Odin Inspector and enable enhanced features
+   - Detection is automatic via `versionDefines` in the assembly definition files
+   - The `ODIN_INSPECTOR` scripting define symbol is set automatically when `com.sirenix.odininspector` package is detected
+   - No manual configuration needed!
 3. Open the Json.NET converters settings (Edit > Json.NET converters settings...)
 4. The inspector will automatically use Odin's enhanced UI
+
+**Note**: If you're using Odin Inspector from the Asset Store (not UPM), you may need to manually add the `ODIN_INSPECTOR` scripting define symbol via Project Settings > Player > Scripting Define Symbols.
 
 ## Without Odin Inspector
 
@@ -31,5 +34,27 @@ The implementation uses conditional compilation (`#if ODIN_INSPECTOR`) to add Od
 
 - No dependencies on Odin Inspector when it's not installed
 - Zero performance impact when Odin is not present
-- Automatic detection and usage when Odin is available
+- Automatic detection via `versionDefines` in assembly definition files
 - No manual switching required
+
+### Automatic Detection
+
+The package automatically detects Odin Inspector using Unity's `versionDefines` feature in the assembly definition files:
+
+```json
+"versionDefines": [
+    {
+        "name": "com.sirenix.odininspector",
+        "expression": "",
+        "define": "ODIN_INSPECTOR"
+    }
+]
+```
+
+When the `com.sirenix.odininspector` package is installed (via UPM), Unity automatically defines the `ODIN_INSPECTOR` symbol, enabling all Odin-specific code.
+
+### Asset Store Installation
+
+If you're using Odin Inspector from the Unity Asset Store (not UPM), the package name may not be `com.sirenix.odininspector`. In this case:
+1. Check if the `ODIN_INSPECTOR` symbol is already defined by Odin's own setup
+2. If not, manually add `ODIN_INSPECTOR` to Project Settings > Player > Scripting Define Symbols
