@@ -238,8 +238,8 @@ Since v1.1.0 of this package, you can configure and override these defaults
 through a ScriptableObject that is saved at
 `Assets/Resources/Newtonsoft.Json-for-Unity.Converters.asset`.
 
-To open the settings, click **"Edit"** in the top menu bar and select
-**"Json<i></i>.NET converters settings..."**
+To open the settings, click **"Tools"** in the top menu bar and select
+**"ET converters settings..."**
 
 ![Configuring ScriptableObject config](Doc/images/configure-scriptableobject.png)
 
@@ -268,7 +268,7 @@ This package follows the Unity Package Manager (UPM) standard directory structur
 /
 ├── Runtime/              # Runtime code (converters, configuration, utilities)
 ├── Editor/               # Editor-only code (custom inspectors, menus)
-├── Tests~/              # Unit tests (hidden from Unity project view)
+├── Tests~/              # Unit tests (hidden, but importable via Package Manager Samples)
 ├── Documentation~/      # Documentation files (hidden from Unity project view)
 ├── package.json         # UPM package manifest
 ├── README.md
@@ -276,7 +276,8 @@ This package follows the Unity Package Manager (UPM) standard directory structur
 └── CHANGELOG.md
 ```
 
-The `~` suffix on folder names (`Tests~`, `Documentation~`) hides them from Unity's Project window, keeping your project clean while maintaining test and documentation files in the package.
+The `~` suffix on folder names (`Tests~`, `Documentation~`) hides them from Unity's Project window, keeping your project clean while maintaining test and documentation files in the package.  
+This package also exposes `Tests~` as a UPM sample so you can import the tests into your project when needed.
 
 ## Contributing
 

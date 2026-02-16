@@ -5,11 +5,19 @@ using UnityEngine;
 
 namespace Newtonsoft.Json.UnityConverters.Configuration
 {
-
 #pragma warning disable CA2235 // Mark all non-serializable fields
     [Serializable]
     public sealed class UnityConvertersConfig : ScriptableObject
     {
+        // JsonSerializerSettings properties
+        public TypeNameHandling typeNameHandling = TypeNameHandling.None;
+        public NullValueHandling nullValueHandling = NullValueHandling.Include;
+        public DefaultValueHandling defaultValueHandling = DefaultValueHandling.Include;
+        public ReferenceLoopHandling referenceLoopHandling = ReferenceLoopHandling.Error;
+        public Formatting formatting = Formatting.None;
+        public DateFormatHandling dateFormatHandling = DateFormatHandling.IsoDateFormat;
+        public MissingMemberHandling missingMemberHandling = MissingMemberHandling.Ignore;
+
         internal const string PATH = "Assets/Resources/Newtonsoft.Json-for-Unity.Converters.asset";
         internal const string PATH_FOR_RESOURCES_LOAD = "Newtonsoft.Json-for-Unity.Converters";
 
@@ -31,15 +39,6 @@ namespace Newtonsoft.Json.UnityConverters.Configuration
         };
 
         public bool autoSyncConverters = true;
-
-        // JsonSerializerSettings properties
-        public TypeNameHandling typeNameHandling = TypeNameHandling.None;
-        public NullValueHandling nullValueHandling = NullValueHandling.Include;
-        public DefaultValueHandling defaultValueHandling = DefaultValueHandling.Include;
-        public ReferenceLoopHandling referenceLoopHandling = ReferenceLoopHandling.Error;
-        public Formatting formatting = Formatting.None;
-        public DateFormatHandling dateFormatHandling = DateFormatHandling.IsoDateFormat;
-        public MissingMemberHandling missingMemberHandling = MissingMemberHandling.Ignore;
     }
 #pragma warning restore CA2235 // Mark all non-serializable fields
 }

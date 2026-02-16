@@ -176,7 +176,7 @@ namespace Newtonsoft.Json.UnityConverters
             if (type == null)
             {
                 Debug.LogWarning($"Failed to lookup JsonConverter type. Ignoring it. Type name: \"{name}\""+
-                    "\nTo fix this warning by going to \"Edit > Json.NET converter settings...\", and then the editor will update your config for you.");
+                    "\nTo fix this warning by going to \"Tools > ET converters settings...\", and then the editor will update your config for you.");
             }
             return type;
         }
