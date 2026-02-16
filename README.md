@@ -316,6 +316,6 @@ See full copyrights in [LICENSE.md][license.md] inside repository
 
 [license.md]: /LICENSE.md
 [changelog.md]: /CHANGELOG.md
-[doc-compatability-table]: Documentation~/Compatability-table.md
+[doc-compatability-table]: Documentation~/Compatibility-table.md
 [issue-create]: https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters/issues/new/choose
 [issue-list-unassigned]: https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters/issues?q=is%3Aopen+is%3Aissue+no%3Aassignee
