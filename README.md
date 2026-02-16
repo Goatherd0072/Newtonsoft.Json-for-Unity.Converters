@@ -260,6 +260,24 @@ JsonSerializerSettings that this package has overridden. If you're setting the
 JsonSerializerSettings manually through code, as shown in the example above,
 then all of these settings will be ignored.
 
+## Package Structure
+
+This package follows the Unity Package Manager (UPM) standard directory structure:
+
+```
+/
+├── Runtime/              # Runtime code (converters, configuration, utilities)
+├── Editor/               # Editor-only code (custom inspectors, menus)
+├── Tests~/              # Unit tests (hidden from Unity project view)
+├── Documentation~/      # Documentation files (hidden from Unity project view)
+├── package.json         # UPM package manifest
+├── README.md
+├── LICENSE.md
+└── CHANGELOG.md
+```
+
+The `~` suffix on folder names (`Tests~`, `Documentation~`) hides them from Unity's Project window, keeping your project clean while maintaining test and documentation files in the package.
+
 ## Contributing
 
 Thankful that you're even reading this :)
@@ -298,6 +316,6 @@ See full copyrights in [LICENSE.md][license.md] inside repository
 
 [license.md]: /LICENSE.md
 [changelog.md]: /CHANGELOG.md
-[doc-compatability-table]: Doc/Compatability-table.md
+[doc-compatability-table]: Documentation~/Compatability-table.md
 [issue-create]: https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters/issues/new/choose
 [issue-list-unassigned]: https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters/issues?q=is%3Aopen+is%3Aissue+no%3Aassignee
