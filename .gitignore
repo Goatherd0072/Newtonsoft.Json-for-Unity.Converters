@@ -2,24 +2,11 @@
 # Backup files
 *.old
 
-# Signing key added by local build script
-Assets/IdentityPublicKey.snk
-Assets/IdentityPublicKey.snk.meta
-
-# Unity generated
+# Unity generated (for development/testing only)
 /[Ll]ibrary/
 /[Ll]ogs/
 /[Tt]emp/
 /[Oo]bj/
-/Assets/AssetStoreTools*
-/Assets/InitTestScene*.unity
-/Assets/InitTestScene*.unity.meta
-
-# Unity project folders (not needed for UPM package)
-/Assets/
-/ProjectSettings/
-/Packages/manifest*.json
-/Build/
 
 # Ignore built plugin files
 Plugins/*/*.dll
