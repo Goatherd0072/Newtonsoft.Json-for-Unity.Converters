@@ -23,30 +23,7 @@ This package contains converters to and from common Unity types. Types such as
 
 ## Dependencies
 
-### Newtonsoft.Json packages
-
-This package requires the `Newtonsoft.Json.dll` file to be present in your
-project. It **does not** have to be used with the `jillejr.newtonsoft.json-for-unity` package!
-
-This package can be combined with any of the following:
-
-- Unity's official Newtonsoft.Json package:
-  [`com.unity.nuget.newtonsoft-json`](https://docs.unity3d.com/Packages/com.unity.nuget.newtonsoft-json@3.0/manual/index.html) 
-  *(recommended)*
-
-- The original jilleJr fork:
-  [jilleJr/Newtonsoft.Json-for-Unity](https://github.com/jilleJr/Newtonsoft.Json-for-Unity)
-
-- SaladLab's fork: [SaladLab/Json.Net.Unity3D](https://github.com/SaladLab/Json.Net.Unity3D)
-
-- ParentElement's Assets Store package: <https://www.parentelement.com/assets/json_net_unity>
-
-- *Any other source, as long as it declares the base `Newtonsoft.Json` types.*
-
-### Newtonsoft.Json versions
-
-There's no hard linking towards a specific version. The package has been tested
-and works as-is with Newtonsoft.Json 10.0.3, 11.0.2, 12.0.3 and 13.0.1.
+### Newtonsoft.Json
 
 ## Installation
 
@@ -72,7 +49,7 @@ Alternatively, you can add this package directly to your project's `Packages/man
 ```json
 {
   "dependencies": {
-    "jillejr.newtonsoft.json-for-unity.converters": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git"
+    "com.cheems.json-for-unity-converters": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git"
   }
 }
 ```
@@ -201,19 +178,23 @@ To open the settings, click **"Tools"** in the top menu bar and select
 Within this settings page, you can enable or disable any of the converters you
 wish to include or omit by default.
 
-The settings page also includes configuration for JsonSerializerSettings properties.
+The settings page also includes configuration for JsonSerializerSettings properties, such as:
+- Type Name Handling
+- Null Value Handling
+- Default Value Handling
+- Reference Loop Handling
+- Formatting (compact or indented)
+- ...
 
 ## Package Structure
-
-This package follows the Unity Package Manager (UPM) standard directory structure:
 
 ```
 /
 ├── Runtime/              # Runtime code (converters, configuration, utilities)
 ├── Editor/               # Editor-only code (custom inspectors, menus)
-├── Tests~/              # Unit tests (hidden, but importable via Package Manager Samples)
-├── Documentation~/      # Documentation files (hidden from Unity project view)
-├── package.json         # UPM package manifest
+├── Tests~/               # Unit tests (hidden, but importable via Package Manager Samples)
+├── Documentation~/       # Documentation files (hidden from Unity project view)
+├── package.json          # UPM package manifest
 ├── README.md
 ├── README_CN.md
 ├── LICENSE.md
