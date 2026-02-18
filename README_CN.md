@@ -1,6 +1,5 @@
 # Unity Converters for Newtonsoft.Json
 
-[![CircleCI](https://img.shields.io/circleci/build/gh/applejag/Newtonsoft.Json-for-Unity.Converters/master?logo=circleci&style=flat-square)](https://circleci.com/gh/applejag/Newtonsoft.Json-for-Unity.Converters)
 [![Codacy grade](https://img.shields.io/codacy/grade/de7041b5f9f9415a8add975d1b8a9fcf?logo=codacy&style=flat-square)](https://www.codacy.com/manual/jilleJr/Newtonsoft.Json-for-Unity.Converters?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jilleJr/Newtonsoft.Json-for-Unity.Converters&amp;utm_campaign=Badge_Grade)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg?style=flat-square)](/CODE_OF_CONDUCT.md)
 
@@ -9,38 +8,22 @@
 该软件包包含常见 Unity 类型的转换器。例如 **Vector2, Vector3, Matrix4x4, Quaternions, Color, 甚至 ScriptableObject,** *还有更多。*
 (请查看 [所有 50+ 种受支持的 Unity 类型的完整兼容性表][doc-compatability-table])
 
-> [!NOTE]
-> **这是一个由 Goatherd0072 维护的分支。** 原项目 (jilleJr/applejag) 已停止维护。
-> 本分支进行了结构调整以符合 UPM 标准，且仅针对 **Unity 2022+** 版本进行测试和维护。
+> [NOTE]
+> 
+> **这是一个由 Goatherd0072 维护的分支。** 原项目 [applejag/Newtonsoft.Json-for-Unity.Converters](https://github.com/applejag/Newtonsoft.Json-for-Unity.Converters) 已停止维护。
+> 因为自身更熟悉UPM包结构，本分支进行了结构调整以符合 UPM 标准，且仅针对 **Unity 2022+** 版本进行测试和维护。
+> 
+> 为了避免混淆，将版本号从 v1.X.X 重置为 v2.0.0，后续版本号将继续递增。
+>
+> 目前没有对包结构的改动进行大规模测试，有BUG请提交 Issue，或提交PR。
+> 
+> 最后再次感谢原作者 jilleJr 的辛勤工作和贡献！🙏🙏
 
-## 依赖项
+## 依赖
 
-### Newtonsoft.Json 包
+### Newtonsoft.Json
 
-此包需要项目中存在 `Newtonsoft.Json.dll` 文件。它**不需要**必须与 `jillejr.newtonsoft.json-for-unity` 包一起使用！Unity 生态系统中存在太多的 Newtonsoft.Json 分支和变体。
-
-此包可以与以下任何项结合使用：
-
-- Unity 官方提供的 Newtonsoft.Json 包：
-  [`com.unity.nuget.newtonsoft-json`](https://docs.unity3d.com/Packages/com.unity.nuget.newtonsoft-json@3.0/manual/index.html) 
-  *(推荐)*
-
-- JamesNK 原始 Newtonsoft.Json 仓库的 jilleJr 分支：
-  [jilleJr/Newtonsoft.Json-for-Unity](https://github.com/jilleJr/Newtonsoft.Json-for-Unity)
-
-- SaladLab 的分支：[SaladLab/Json.Net.Unity3D](https://github.com/SaladLab/Json.Net.Unity3D)
-
-- ParentElement 的 Asset Store 包：<https://www.parentelement.com/assets/json_net_unity>
-
-- *任何其他来源，只要在 Assets 文件夹中有 `Newtonsoft.Json.dll` 文件，并且声明了基础的 `Newtonsoft.Json` 类型即可。*
-
-### Newtonsoft.Json 版本
-
-没有硬性链接到特定版本。该软件包已通过测试，可以按原样与 Newtonsoft.Json 10.0.3, 11.0.2, 12.0.3 和 13.0.1 一起使用。
-
-此包未在早于 v10.0.3 的 Newtonsoft.Json 版本上进行测试。
-
-## 安装
+## 安装方式
 
 ### 通过 Git URL 安装 (推荐)
 
@@ -64,7 +47,7 @@ https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git#v2.0.0
 ```json
 {
   "dependencies": {
-    "jillejr.newtonsoft.json-for-unity.converters": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git"
+    "com.cheems.json-for-unity-converters": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git"
   }
 }
 ```
@@ -182,9 +165,7 @@ var json = JsonConvert.SerializeObject(myObjectINeedToSerialize, settings);
 - Formatting (compact or indented)
 - ...
 
-## 包结构
-
-此包遵循 Unity Package Manager (UPM) 标准目录结构：
+## 目录结构
 
 ```
 /
@@ -213,11 +194,8 @@ var json = JsonConvert.SerializeObject(myObjectINeedToSerialize, settings);
 
 ---
 
-此包根据 MIT 许可证 (MIT) 授权
-
-Copyright (c) 2019 Kalle Fagerberg (jilleJr)  
-<https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters>
-
+## 许可
+ ### MIT License
 在仓库内的 [LICENSE.md][license.md] 中查看完整的版权信息。
 
 [license.md]: /LICENSE.md

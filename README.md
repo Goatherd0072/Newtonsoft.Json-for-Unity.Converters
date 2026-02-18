@@ -11,11 +11,16 @@ This package contains converters to and from common Unity types. Types such as
 *and many, many more.*
 (See the [full compatibility table of all +50 supported Unity types][doc-compatability-table])
 
-> [!NOTE]
-> **This is a fork** maintained by Goatherd0072. The original project by [applejag/Newtonsoft.Json-for-Unity.Converters](https://github.com/applejag/Newtonsoft.Json-for-Unity.Converters) is no longer maintained.
-> As I am more familiar with the UPM package structure, this fork has been restructured to follow UPM standards and is tested/maintained for **Unity 2022+** only.
+> [NOTE]
 >
-> To avoid confusion, the version number has been reset from v1.0.0 to v2.0.0, and subsequent version numbers will continue to increment.
+> **This is a fork** maintained by Goatherd0072. The original project
+> by [applejag/Newtonsoft.Json-for-Unity.Converters](https://github.com/applejag/Newtonsoft.Json-for-Unity.Converters) is
+> no longer maintained.
+> As I am more familiar with the UPM package structure, this fork has been restructured to follow UPM standards and is
+> tested/maintained for **Unity 2022+** only.
+>
+> To avoid confusion, the version number has been reset from v1.X.X to v2.0.0, and subsequent version numbers will
+> continue to increment.
 >
 > The package structure changes have not been extensively tested. If you find any bugs, please submit an Issue or a PR.
 >
@@ -38,6 +43,7 @@ This is the recommended installation method for this pure UPM package.
 5. Click "Add"
 
 You can also add a specific version, tag, or branch by appending it to the URL:
+
 ```
 https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git#v2.0.0
 ```
@@ -48,9 +54,9 @@ Alternatively, you can add this package directly to your project's `Packages/man
 
 ```json
 {
-  "dependencies": {
-    "com.cheems.json-for-unity-converters": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git"
-  }
+    "dependencies": {
+        "com.cheems.json-for-unity-converters": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git"
+    }
 }
 ```
 
@@ -137,8 +143,8 @@ explored just below here.
 
 - Use only some of the Newtonsoft.Json converters, namely:
 
-  - [StringEnumConverter](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Converters_StringEnumConverter.htm)
-  - [VersionConverter](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Converters_VersionConverter.htm)
+    - [StringEnumConverter](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Converters_StringEnumConverter.htm)
+    - [VersionConverter](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Converters_VersionConverter.htm)
 
 - Use all converters from this package.
 
@@ -179,6 +185,7 @@ Within this settings page, you can enable or disable any of the converters you
 wish to include or omit by default.
 
 The settings page also includes configuration for JsonSerializerSettings properties, such as:
+
 - Type Name Handling
 - Null Value Handling
 - Default Value Handling
@@ -221,15 +228,18 @@ Please see the [CHANGELOG.md][changelog.md] file inside this package.
 
 ---
 
-This package is licensed under The MIT License (MIT)
+## LICENSE
 
-Copyright (c) 2019 Kalle Fagerberg (jilleJr)  
-<https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters>
+### MIT License
 
 See full copyrights in [LICENSE.md][license.md] inside repository
 
 [license.md]: /LICENSE.md
+
 [changelog.md]: /CHANGELOG.md
+
 [doc-compatability-table]: Documentation~/Compatibility-table.md
+
 [issue-create]: https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters/issues/new/choose
+
 [issue-list-unassigned]: https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters/issues?q=is%3Aopen+is%3Aissue+no%3Aassignee
