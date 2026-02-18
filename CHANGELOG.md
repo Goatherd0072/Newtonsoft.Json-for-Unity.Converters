@@ -1,5 +1,20 @@
 # Unity Converters for Newtonsoft.Json changelog
 
+## 2.0.0 (2026-02-18)
+
+- Reorganized repository to follow Unity Package Manager (UPM) standard directory structure.
+  ([#1](https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters/pull/1))
+
+- Moved package contents to the root of the repository for easier Git URL installation.
+
+- Updated package metadata (name, version, author).
+
+- Updated README with installation instructions via Git URL.
+
+- Fixed file naming bug.
+
+
+
 ## 1.6.3 (2024-03-01)
 
 - Fixed converter lookups collisions when multiple assemblies converters
