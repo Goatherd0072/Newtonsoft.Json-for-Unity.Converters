@@ -4,57 +4,31 @@
 [![Codacy grade](https://img.shields.io/codacy/grade/de7041b5f9f9415a8add975d1b8a9fcf?logo=codacy&style=flat-square)](https://www.codacy.com/manual/jilleJr/Newtonsoft.Json-for-Unity.Converters?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jilleJr/Newtonsoft.Json-for-Unity.Converters&amp;utm_campaign=Badge_Grade)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg?style=flat-square)](/CODE_OF_CONDUCT.md)
 
+[English](./README.md) | [中文](./README_CN.md)
+
 This package contains converters to and from common Unity types. Types such as
 **Vector2, Vector3, Matrix4x4, Quaternions, Color, even ScriptableObject,**
 *and many, many more.*
 (See the [full compatibility table of all +50 supported Unity types][doc-compatability-table])
 
-> [!NOTE]
-> **This is a fork** maintained by Goatherd0072. The original project by jilleJr/applejag is no longer maintained.
+> [NOTE]
+>
+> **This is a fork** maintained by Goatherd0072. The original project
+> by [applejag/Newtonsoft.Json-for-Unity.Converters](https://github.com/applejag/Newtonsoft.Json-for-Unity.Converters) is
+> no longer maintained.
+> As I am more familiar with the UPM package structure, this fork has been restructured to follow UPM standards and is
+> tested/maintained for **Unity 2022+** only.
+>
+> To avoid confusion, the version number has been reset from v1.X.X to v2.0.0, and subsequent version numbers will
+> continue to increment.
+>
+> The package structure changes have not been extensively tested. If you find any bugs, please submit an Issue or a PR.
+>
+> Finally, thanks again to the original author jilleJr for his hard work and contribution! 🙏🙏
 
 ## Dependencies
 
-### Newtonsoft.Json packages
-
-This package requires the `Newtonsoft.Json.dll` file to be present in your
-project. So it **does not have to be used with my
-`jillejr.newtonsoft.json-for-unity` package!** I recognize that there are too
-many Newtonsoft.Json forks and variants out there in the Unity eco-system.
-
-This package can be combined with any of the following:
-
-- Unity's fork of my fork Newtonsoft.Json package:
-  [`com.unity.nuget.newtonsoft-json@3.0.1`](https://docs.unity3d.com/Packages/com.unity.nuget.newtonsoft-json@3.0/manual/index.html) 
-  *(recommended)*
-
-- My own fork of JamesNK's original Newtonsoft.Json repo:
-  [jilleJr/Newtonsoft.Json-for-Unity](https://github.com/jilleJr/Newtonsoft.Json-for-Unity)
-
-- SaladLab's fork: [SaladLab/Json.Net.Unity3D](https://github.com/SaladLab/Json.Net.Unity3D)
-
-- ParentElement's Assets Store package: <https://www.parentelement.com/assets/json_net_unity>
-
-- *Any other source, such as having the `Newtonsoft.Json.dll` files inside your
-  Assets folder, as long as it declares the base `Newtonsoft.Json` types.*
-
-Since v3.0.1 of Unity's fork (of my fork) of Newtonsoft.Json, they are now
-promising a maintained version with official support by Unity's own dev
-team. See installation instructions here: [Install official UPM package](https://github.com/jilleJr/Newtonsoft.Json-for-Unity/wiki/Install-official-via-UPM)
-
-> This is a maintained fork. Install via Git URL as described below for the latest updates.
-
-### Newtonsoft.Json versions
-
-There's no hard linking towards a specific version. The package has been tested
-and works as-is with Newtonsoft.Json 10.0.3, 11.0.2, 12.0.3 and 13.0.1.
-
-This package has not been tested towards Newtonsoft.Json versions older than
-v10.0.3, though the API has not changed much in a long time so it should be
-fine to use even as old versions as Json .NET v8.0.1 without any troubles.
-
-If you have any troubles with using this package with a specific version of
-Newtonsoft.Json, then don't fray in opening an [issue][issue-create] so we can
-resolve it.
+### Newtonsoft.Json
 
 ## Installation
 
@@ -69,11 +43,10 @@ This is the recommended installation method for this pure UPM package.
 5. Click "Add"
 
 You can also add a specific version, tag, or branch by appending it to the URL:
-```
-https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git#v1.0.0
-```
 
-Replace `v1.0.0` with your desired version tag or branch name.
+```
+https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git#v2.0.0
+```
 
 ### Install via manifest.json
 
@@ -81,22 +54,11 @@ Alternatively, you can add this package directly to your project's `Packages/man
 
 ```json
 {
-  "dependencies": {
-    "jillejr.newtonsoft.json-for-unity.converters": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git"
-  }
+    "dependencies": {
+        "com.cheems.json-for-unity-converters": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git"
+    }
 }
 ```
-
-For a specific version, tag, or branch:
-```json
-{
-  "dependencies": {
-    "jillejr.newtonsoft.json-for-unity.converters": "https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters.git#v1.0.0"
-  }
-}
-```
-
-Replace `v1.0.0` with your desired version tag or branch name.
 
 ## What does it solve
 
@@ -118,12 +80,7 @@ writing:
       "y": 1,
       "z": 0,
       "normalized": {
-        "x": 0,
-        "y": 1,
-        "z": 0,
-        "normalized": {
           ...
-        }
       }
     }
   }
@@ -153,31 +110,15 @@ public class NewBehaviour : MonoBehaviour {
 
 Then the following is shown:
 
-![Error in Unity Console window](Doc/images/console-without-package.png)
-
 ```log
 JsonSerializationException: Self referencing loop detected for property 'normalized' with type 'UnityEngine.Vector3'. Path 'normalized'.
-Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference (Newtonsoft.Json.JsonWriter writer, System.Object value, Newtonsoft.Json.Serialization.JsonProperty property, Newtonsoft.Json.Serialization.JsonContract contract, Newtonsoft.Json.Serialization.JsonContainerContract containerContract, Newtonsoft.Json.Serialization.JsonProperty containerProperty) (at /root/repo/Src/Newtonsoft.Json/Serialization/JsonSerializerInternalWriter.cs:347)
-Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues (Newtonsoft.Json.JsonWriter writer, System.Object value, Newtonsoft.Json.Serialization.JsonContainerContract contract, Newtonsoft.Json.Serialization.JsonProperty member, Newtonsoft.Json.Serialization.JsonProperty property, Newtonsoft.Json.Serialization.JsonContract& memberContract, System.Object& memberValue) (at /root/repo/Src/Newtonsoft.Json/Serialization/JsonSerializerInternalWriter.cs:552)
-Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject (Newtonsoft.Json.JsonWriter writer, System.Object value, Newtonsoft.Json.Serialization.JsonObjectContract contract, Newtonsoft.Json.Serialization.JsonProperty member, Newtonsoft.Json.Serialization.JsonContainerContract collectionContract, Newtonsoft.Json.Serialization.JsonProperty containerProperty) (at /root/repo/Src/Newtonsoft.Json/Serialization/JsonSerializerInternalWriter.cs:486)
-Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue (Newtonsoft.Json.JsonWriter writer, System.Object value, Newtonsoft.Json.Serialization.JsonContract valueContract, Newtonsoft.Json.Serialization.JsonProperty member, Newtonsoft.Json.Serialization.JsonContainerContract containerContract, Newtonsoft.Json.Serialization.JsonProperty containerProperty) (at /root/repo/Src/Newtonsoft.Json/Serialization/JsonSerializerInternalWriter.cs:181)
-Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject (Newtonsoft.Json.JsonWriter writer, System.Object value, Newtonsoft.Json.Serialization.JsonObjectContract contract, Newtonsoft.Json.Serialization.JsonProperty member, Newtonsoft.Json.Serialization.JsonContainerContract collectionContract, Newtonsoft.Json.Serialization.JsonProperty containerProperty) (at /root/repo/Src/Newtonsoft.Json/Serialization/JsonSerializerInternalWriter.cs:486)
-Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue (Newtonsoft.Json.JsonWriter writer, System.Object value, Newtonsoft.Json.Serialization.JsonContract valueContract, Newtonsoft.Json.Serialization.JsonProperty member, Newtonsoft.Json.Serialization.JsonContainerContract containerContract, Newtonsoft.Json.Serialization.JsonProperty containerProperty) (at /root/repo/Src/Newtonsoft.Json/Serialization/JsonSerializerInternalWriter.cs:181)
-Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize (Newtonsoft.Json.JsonWriter jsonWriter, System.Object value, System.Type objectType) (at /root/repo/Src/Newtonsoft.Json/Serialization/JsonSerializerInternalWriter.cs:96)
-Newtonsoft.Json.JsonSerializer.SerializeInternal (Newtonsoft.Json.JsonWriter jsonWriter, System.Object value, System.Type objectType) (at /root/repo/Src/Newtonsoft.Json/JsonSerializer.cs:1146)
-Newtonsoft.Json.JsonSerializer.Serialize (Newtonsoft.Json.JsonWriter jsonWriter, System.Object value, System.Type objectType) (at /root/repo/Src/Newtonsoft.Json/JsonSerializer.cs:1046)
-Newtonsoft.Json.JsonConvert.SerializeObjectInternal (System.Object value, System.Type type, Newtonsoft.Json.JsonSerializer jsonSerializer) (at /root/repo/Src/Newtonsoft.Json/JsonConvert.cs:665)
-Newtonsoft.Json.JsonConvert.SerializeObject (System.Object value, System.Type type, Newtonsoft.Json.JsonSerializerSettings settings) (at /root/repo/Src/Newtonsoft.Json/JsonConvert.cs:614)
-Newtonsoft.Json.JsonConvert.SerializeObject (System.Object value) (at /root/repo/Src/Newtonsoft.Json/JsonConvert.cs:530)
-Sample.Start () (at Assets/Sample.cs:18)
+...
 ```
 
 ### Sample with this package
 
 Same `NewBehaviour` script as above, but just by adding this package you instead
 see:
-
-![Debug message in Unity Console window](Doc/images/console-with-package.png)
 
 ```log
 Position as JSON: {"x":201.0,"y":219.5,"z":0.0}
@@ -202,8 +143,8 @@ explored just below here.
 
 - Use only some of the Newtonsoft.Json converters, namely:
 
-  - [StringEnumConverter](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Converters_StringEnumConverter.htm)
-  - [VersionConverter](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Converters_VersionConverter.htm)
+    - [StringEnumConverter](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Converters_StringEnumConverter.htm)
+    - [VersionConverter](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Converters_VersionConverter.htm)
 
 - Use all converters from this package.
 
@@ -234,50 +175,38 @@ var json = JsonConvert.SerializeObject(myObjectINeedToSerialize, settings);
 
 ### Custom settings through config file
 
-Since v1.1.0 of this package, you can configure and override these defaults
-through a ScriptableObject that is saved at
-`Assets/Resources/Newtonsoft.Json-for-Unity.Converters.asset`.
-
+You can configure and override these defaults.
 To open the settings, click **"Tools"** in the top menu bar and select
-**"ET converters settings..."**
+**"Newtonsoft Json > Converters settings..."** (Note: menu location changed in v2.0.0).
 
 ![Configuring ScriptableObject config](Doc/images/configure-scriptableobject.png)
 
 Within this settings page, you can enable or disable any of the converters you
 wish to include or omit by default.
 
-The settings page also includes configuration for JsonSerializerSettings properties such as:
+The settings page also includes configuration for JsonSerializerSettings properties, such as:
+
 - Type Name Handling
 - Null Value Handling
 - Default Value Handling
 - Reference Loop Handling
 - Formatting (compact or indented)
-- Date Format Handling
-- Missing Member Handling
-
-These settings are only applied when you're using the default
-JsonSerializerSettings that this package has overridden. If you're setting the
-JsonSerializerSettings manually through code, as shown in the example above,
-then all of these settings will be ignored.
+- ...
 
 ## Package Structure
-
-This package follows the Unity Package Manager (UPM) standard directory structure:
 
 ```
 /
 ├── Runtime/              # Runtime code (converters, configuration, utilities)
 ├── Editor/               # Editor-only code (custom inspectors, menus)
-├── Tests~/              # Unit tests (hidden, but importable via Package Manager Samples)
-├── Documentation~/      # Documentation files (hidden from Unity project view)
-├── package.json         # UPM package manifest
+├── Tests~/               # Unit tests (hidden, but importable via Package Manager Samples)
+├── Documentation~/       # Documentation files (hidden from Unity project view)
+├── package.json          # UPM package manifest
 ├── README.md
+├── README_CN.md
 ├── LICENSE.md
 └── CHANGELOG.md
 ```
-
-The `~` suffix on folder names (`Tests~`, `Documentation~`) hides them from Unity's Project window, keeping your project clean while maintaining test and documentation files in the package.  
-This package also exposes `Tests~` as a UPM sample so you can import the tests into your project when needed.
 
 ## Contributing
 
@@ -291,16 +220,7 @@ If you want to contribute, here's what you can do:
 - [Open an issue][issue-create]. Could be a feature request for a new converter,
   or maybe you've found a bug?
 
-- [Tackle one of the unassigned issues][issue-list-unassigned]. If it looks like
-  a fun task to solve and no one is assigned, then just comment on it and say
-  that you would like to try it out.
-
-- Open a PR with some new feature or issue solved. Remember to ask before
-  starting to work on anything, so no two are working on the same thing.
-
-  Having a feature request or issue pop up and having the submitter suggesting
-  themselves to later add a PR for a solution is the absolute greatest gift
-  a repository maintainer could ever receive. 🎁
+- Open a PR with some new feature or issue solved.
 
 ## Changelog
 
@@ -308,15 +228,18 @@ Please see the [CHANGELOG.md][changelog.md] file inside this package.
 
 ---
 
-This package is licensed under The MIT License (MIT)
+## LICENSE
 
-Copyright (c) 2019 Kalle Fagerberg (jilleJr)  
-<https://github.com/jilleJr/Newtonsoft.Json-for-Unity.Converters>
+### MIT License
 
 See full copyrights in [LICENSE.md][license.md] inside repository
 
 [license.md]: /LICENSE.md
+
 [changelog.md]: /CHANGELOG.md
+
 [doc-compatability-table]: Documentation~/Compatibility-table.md
+
 [issue-create]: https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters/issues/new/choose
+
 [issue-list-unassigned]: https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters/issues?q=is%3Aopen+is%3Aissue+no%3Aassignee
