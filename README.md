@@ -12,8 +12,14 @@ This package contains converters to and from common Unity types. Types such as
 (See the [full compatibility table of all +50 supported Unity types][doc-compatability-table])
 
 > [!NOTE]
-> **This is a fork** maintained by Goatherd0072. The original project by jilleJr/applejag is no longer maintained.
-> This fork has been restructured to follow UPM standards and is tested/maintained for **Unity 2022+** only.
+> **This is a fork** maintained by Goatherd0072. The original project by [applejag/Newtonsoft.Json-for-Unity.Converters](https://github.com/applejag/Newtonsoft.Json-for-Unity.Converters) is no longer maintained.
+> As I am more familiar with the UPM package structure, this fork has been restructured to follow UPM standards and is tested/maintained for **Unity 2022+** only.
+>
+> To avoid confusion, the version number has been reset from v1.0.0 to v2.0.0, and subsequent version numbers will continue to increment.
+>
+> The package structure changes have not been extensively tested. If you find any bugs, please submit an Issue or a PR.
+>
+> Finally, thanks again to the original author jilleJr for his hard work and contribution! 🙏🙏
 
 ## Dependencies
 
