@@ -2,16 +2,21 @@
 
 ## 2.0.0 (2026-02-18)
 
-- Reorganized repository to follow Unity Package Manager (UPM) standard directory structure.
+- CN: 重组仓库以遵循 Unity Package Manager (UPM) 标准目录结构。
+  EN: Reorganized repository to follow Unity Package Manager (UPM) standard directory structure.
   ([#1](https://github.com/Goatherd0072/Newtonsoft.Json-for-Unity.Converters/pull/1))
 
-- Moved package contents to the root of the repository for easier Git URL installation.
+- CN: 将包内容移动到仓库根目录，以便于通过 Git URL 安装。
+  EN: Moved package contents to the root of the repository for easier Git URL installation.
 
-- Updated package metadata (name, version, author).
+- CN: 更新了包元数据（名称、版本、作者）。
+  EN: Updated package metadata (name, version, author).
 
-- Updated README with installation instructions via Git URL.
+- CN: 更新了 README，增加了通过 Git URL 安装的说明。
+  EN: Updated README with installation instructions via Git URL.
 
-- Fixed file naming bug.
+- CN: 修复了文件命名错误。
+  EN: Fixed file naming bug.
 
 
 
